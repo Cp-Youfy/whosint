@@ -4,6 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script type="module">
+        import { Octokit } from "https://esm.sh/@octokit/core";
+        window.Octokit = Octokit;
+      </script>
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>whOSINT</title>
@@ -17,36 +21,37 @@
     <p>USAGE<br>
         ⋆ Do NOT include any delimiters (e.g. @) in the username<br>
         ⋆ You can specify specific platforms to search<br>
+        ⋆ Due to CORS restrictions, you will need to check Instagram, Twitter manually with the generated link. These links will be indicated with <span class='unknown'>this style</span><br>
         ⋆ Reset button resets all form inputs, including username<br>
         ⋆ Click Submit to find all matching account usernames and relevant links
     </p>
-    <form class="form">
+    <form class="form" id="search-form">
         <div class="form-field-box">
-            <input type="text" name="username" placeholder="username">
+            <input type="text" name="username" placeholder="username" required="true">
         </div>
         <div class="form-field-box">
             <div class="form-field">
-                <input type="checkbox" name="facebook" id="facebook" value="instagram" checked="checked">
+                <input type="checkbox" name="facebook" id="facebook" value="true" checked="checked">
                 <label for="facebook"> Facebook </label>
             </div>
             <div class="form-field">
-                <input type="checkbox" name="instagram" id="instagram" value="instagram" checked="checked">
+                <input type="checkbox" name="instagram" id="instagram" value="true" checked="checked">
                 <label for="instagram"> Instagram </label>
             </div>
             <div class="form-field">
-                <input type="checkbox" name="twitter" id="twitter" value="twitter" checked="checked">
+                <input type="checkbox" name="twitter" id="twitter" value="true" checked="checked">
                 <label for="twitter"> Twitter / X </label>
             </div>
             <div class="form-field">
-                <input type="checkbox" name="github" id="github" value="github" checked="checked">
+                <input type="checkbox" name="github" id="github" value="true" checked="checked">
                 <label for="github"> GitHub </label>
             </div>
             <div class="form-field">
-                <input type="checkbox" name="linkedin" id="linkedin" value="linkedin" checked="checked">
+                <input type="checkbox" name="linkedin" id="linkedin" value="true" checked="checked">
                 <label for="linkedin"> LinkedIn </label>
             </div>
             <div class="form-field">
-                <input type="checkbox" name="youtube" id="youtube" value="youtube" checked="checked">
+                <input type="checkbox" name="youtube" id="youtube" value="true" checked="checked">
                 <label for="youtube"> YouTube </label>
             </div>
         </div>
@@ -57,10 +62,12 @@
             </div>
         </div>
     </form>
-    <div id="response"></div>
+    <p id="response"></p>
 </div>
 <a href='../index.html'><img id='logo' src="logo_white.png"></a>
 </main>
+
+<!-- Script Imports -->
 <script src="script.js"></script>
 </body>
 
