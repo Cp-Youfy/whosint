@@ -1,0 +1,131 @@
+/* FONTS */
+@font-face {
+    font-family: mini-wakuwaku;
+    src: url(mini-wakuwaku/mini-wakuwaku.otf);
+}
+
+* {
+    color: white;
+    background: black;
+}
+
+#logo {
+    position: absolute;
+    width: 64px;
+    bottom: 0;
+    right: 0;
+}
+
+.main {
+    padding: 10px;
+    min-height: 90vh;
+}
+
+.center {
+    width: 80%;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    line-height: 1em;
+    height: inherit;
+    font-family: 'mini-wakuwaku', 'Lato', sans-serif;
+}
+
+.title {
+    font-size: 3em;
+}
+
+.subtitle {
+    font-size: 1.5em;
+}
+
+.form {
+    width: 80%;
+}
+
+.form-field-box {
+    flex-direction: row;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 0.5em;
+    flex-wrap: wrap;
+    margin-bottom: 1em;
+    width: 100%;
+    border: none; 
+    font-size: 1em;
+    outline: none;
+}
+
+.form-field {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+    margin-bottom: 0;
+    padding: 0;
+    border: none;
+}
+
+.button-row {
+    width: 100%;
+    display: flex;
+    align-items: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 1em;
+    margin-bottom: 0;
+    padding: 0;
+    border: none;
+}
+
+.button {
+    flex: 1;
+    min-width: 120px;
+    outline: none;
+    text-align: center;
+    padding: 1em 1.5em;
+    border: 1px solid white; 
+    border-radius: 8px;
+    font-size: 1em;    
+    width: 100%;
+    font-family: 'Lato', sans-serif;
+    background-color: #c9e8ff;
+    opacity: 1;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #87cbff;
+}
+
+input {
+    margin-bottom: 1em;
+    width: 100%;
+    padding: 1.5em 1em;
+    border: 1px solid white; 
+    border-radius: 8px;
+    font-size: 1em;
+    outline: none;
+    box-sizing: border-box;
+}
+  
+input::placeholder {
+    font-size: 1.2em; 
+    color: #cbcbcb; 
+}
+
+input:focus {
+    border-color: #c9e8ff;
+    box-shadow: 0 0 8px rgba(0, 255, 204, 0.5);
+}
+  
+input[type="checkbox"] {
+    margin: 0;
+    width: 1em; /* Explicit checkbox size */
+    height: 1em; /* Explicit checkbox size */
+    background-color: #ffffff;
+}

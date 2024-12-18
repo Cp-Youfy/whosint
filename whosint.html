@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>whOSINT</title>
+</head>
+
+<body>
+<main class="main">
+<div class="center">
+    <h1 class="title"> whOSINT </h1>
+    <p class="subtitle"> search for a username in common social media websites </p>
+    <p>USAGE<br>
+        ⋆ Do NOT include any delimiters (e.g. @) in the username<br>
+        ⋆ You can specify specific platforms to search<br>
+        ⋆ Reset button resets all form inputs, including username<br>
+        ⋆ Click Submit to find all matching account usernames and relevant links
+    </p>
+    <form class="form">
+        <div class="form-field-box">
+            <input type="text" name="username" placeholder="username">
+        </div>
+        <div class="form-field-box">
+            <div class="form-field">
+                <input type="checkbox" name="facebook" id="facebook" value="instagram" checked="checked">
+                <label for="facebook"> Facebook </label>
+            </div>
+            <div class="form-field">
+                <input type="checkbox" name="instagram" id="instagram" value="instagram" checked="checked">
+                <label for="instagram"> Instagram </label>
+            </div>
+            <div class="form-field">
+                <input type="checkbox" name="twitter" id="twitter" value="twitter" checked="checked">
+                <label for="twitter"> Twitter / X </label>
+            </div>
+            <div class="form-field">
+                <input type="checkbox" name="github" id="github" value="github" checked="checked">
+                <label for="github"> GitHub </label>
+            </div>
+            <div class="form-field">
+                <input type="checkbox" name="linkedin" id="linkedin" value="linkedin" checked="checked">
+                <label for="linkedin"> LinkedIn </label>
+            </div>
+            <div class="form-field">
+                <input type="checkbox" name="youtube" id="youtube" value="youtube" checked="checked">
+                <label for="youtube"> YouTube </label>
+            </div>
+        </div>
+        <div class="form-field-box">
+            <div class="button-row">
+                <button type="reset" class="button">Reset</button>
+                <button type="submit" class="button">Submit</button>
+            </div>
+        </div>
+    </form>
+    <div id="response"></div>
+</div>
+<a href='../index.html'><img id='logo' src="logo_white.png"></a>
+</main>
+<script src="script.js"></script>
+</body>
+
+</html>
