@@ -5,7 +5,7 @@ function httpGet(theUrl, callback)
 
     xmlHttp.onload = function () {
         if (callback) {
-            callback(xmlHttp.status);
+            callback(xmlHttp);
         }
     }
     
@@ -42,8 +42,9 @@ async function processResult(results) {
 
     if (results['facebook'] == 'true') {
         var fbLink = `https://graph.facebook.com/${userId}/picture`;
-        httpGet(fbLink, function (fbStatus) {
-            if (fbStatus !== null && fbStatus !== 400) {
+        httpGet(fbLink, function (fbRes) {
+            const fbStatus = fbRes.status
+            if (fbStatus !== null && fbStatus !== 400 & fbStatus !== 403) {
                 console.log("Response Status:", fbStatus); // Logs the response status (e.g., 200, 404)
                 resultHtml += `<a href='https://facebook.com/${userId}' target='_blank'>Facebook</a>\n`
                 document.getElementById('response').innerHTML = resultHtml;
@@ -65,17 +66,38 @@ async function processResult(results) {
 
     if (results['github'] == 'true') {
         const octokit = new window.Octokit();
-        var githubLink = `https://github.com/${userId}`;
         try {
             githubResult = await octokit.request(`GET /users/${userId}`)
+            resultHtml += `<a href='https://github.com/${userId}' target='_blank'>GitHub</a>\n`
+            document.getElementById('response').innerHTML = resultHtml;     
         }
         catch (e) {
             console.log("GitHub account not found")
         }
-        resultHtml += `<a href='https://github.com/${userId}' target='_blank'>GitHub</a>\n`
-        document.getElementById('response').innerHTML = resultHtml;     
     }
-        
+    
+    if (results['linkedin'] == 'true') {
+
+    }
+
+    if (results['youtube'] == 'true') {
+        const youtubeApiKey = 'AIzaSyCP1lguRmgdNFsGj9MaqxuiFKmOC11yNHU'
+        var ytLink = `https://www.googleapis.com/youtube/v3/channels?forHandle=${userId}&part=snippet&key=${youtubeApiKey}`;
+        httpGet(ytLink, function (ytReq) {
+            const ytRes = JSON.parse(ytReq.response);
+            var ytTotalResults = ytRes.pageInfo.totalResults;
+            if (ytTotalResults > 0) {
+                resultHtml += `<a href='https://youtube.com/@${userId}' target='_blank'>YouTube</a>\n`
+                document.getElementById('response').innerHTML = resultHtml;
+            } else {
+                console.log("YouTube account not found.");
+            }        
+        });
+    }
+
+    if (results['reddit'] == 'true') {
+
+    }
 }
   
 document.getElementById("search-form").addEventListener("submit", function (e) {
