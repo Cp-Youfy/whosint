@@ -21,8 +21,8 @@
     <p>USAGE<br>
         ⋆ Do NOT include any delimiters (e.g. @) in the username<br>
         ⋆ You can specify specific platforms to search<br>
-        ⋆ Due to paid API restrictions, you will need to check Instagram, Twitter manually with the generated link. These links will be indicated with <span class='unknown'>this style</span><br>
-        ⋆ Reset button resets all form inputs, including username<br>
+        ⋆ Some links will be indicated with <span class='unknown'>this style</span> -- you will need to check these manually!<br>
+        ⋆ Hover over a checkbox field -- some have additional tooltips! <br>
         ⋆ Click Submit to find all matching account usernames and relevant links
     </p>
     <form class="form" id="search-form">
@@ -37,10 +37,16 @@
             <div class="form-field">
                 <input type="checkbox" name="instagram" id="instagram" value="true" checked="checked">
                 <label for="instagram"> Instagram </label>
+                <div class="tooltip">
+                    Tip: Due to Paid API restrictions, Instagram links have to be checked manually
+                </div>
             </div>
             <div class="form-field">
                 <input type="checkbox" name="twitter" id="twitter" value="true" checked="checked">
                 <label for="twitter"> Twitter / X </label>
+                <div class="tooltip">
+                    Tip: Due to Paid API restrictions, Twitter / X links have to be checked manually
+                </div>
             </div>
             <div class="form-field">
                 <input type="checkbox" name="github" id="github" value="true" checked="checked">
@@ -49,6 +55,9 @@
             <div class="form-field">
                 <input type="checkbox" name="linkedin" id="linkedin" value="true" checked="checked">
                 <label for="linkedin"> LinkedIn </label>
+                <div class="tooltip">
+                    Tip: LinkedIn usernames are not unique, so this generates a search link that has to be checked manually instead
+                </div>
             </div>
             <div class="form-field">
                 <input type="checkbox" name="youtube" id="youtube" value="true" checked="checked">
@@ -57,6 +66,13 @@
             <div class="form-field">
                 <input type="checkbox" name="reddit" id="reddit" value="true" checked="checked">
                 <label for="reddit"> Reddit </label>
+            </div>
+            <div class="form-field">
+                <input type="checkbox" name="gen-additional" id="gen-additional" value="true">
+                <label for="gen-additional"> Generate additional links </label>
+                <div class="tooltip">
+                    Tip: Check this box if you want to generate additional search links in case there are no exact matches
+                </div>
             </div>
         </div>
         <div class="form-field-box">
@@ -68,11 +84,12 @@
     </form>
     <p id="response"></p>
 </div>
-<a href='../index.html'><img id='logo' src="logo_white.png"></a>
-</main>
 
 <!-- Script Imports -->
 <script src="script.js"></script>
 </body>
-
+<footer class="footer">
+    <a href='../index.html'><img id='logo' src="logo_white.png"></a>
+</footer>
+</main>
 </html>

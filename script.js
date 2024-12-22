@@ -77,7 +77,8 @@ async function processResult(results) {
     }
     
     if (results['linkedin'] == 'true') {
-
+        resultHtml += `<a href='https://www.linkedin.com/search/results/all/?keywords=${userId}&origin=GLOBAL_SEARCH_HEADER&sid=wAe' target='_blank' class='unknown'>LinkedIn</a>\n`
+        document.getElementById('response').innerHTML = resultHtml;             
     }
 
     if (results['youtube'] == 'true') {
@@ -96,7 +97,23 @@ async function processResult(results) {
     }
 
     if (results['reddit'] == 'true') {
+        // api queries if username is available --> false => user exists!
+        var redditLink = `https://www.reddit.com/api/username_available.json?user=${userId}`
+        httpGet(redditLink, function (redditReq) {
+            const redditRes = JSON.parse(redditReq.response)
+            if (redditRes == false) {
+                resultHtml += `<a href='https://www.reddit.com/user/${userId}' target='_blank'>Reddit</a>\n`
+                document.getElementById('response').innerHTML = resultHtml;
+            } else {
+                console.log("Reddit account not found")
+            }
+        });
+    }
 
+    if (results['gen-additional'] == 'true') {
+        var ytQuery = userId.split(' ').join('+')
+        resultHtml += `<a href='https://www.youtube.com/results?search_query=${ytQuery}' target='_blank' class='unknown'>YouTube search</a>\n`
+        document.getElementById('response').innerHTML = resultHtml;
     }
 }
   

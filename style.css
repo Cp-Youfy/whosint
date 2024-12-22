@@ -21,6 +21,14 @@
     min-height: 90vh;
 }
 
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'mini-wakuwaku', 'Lato', sans-serif;
+}
+
 .center {
     width: 80%;
     max-width: 1000px;
@@ -132,4 +140,23 @@ input[type="checkbox"] {
     width: 1em; /* Explicit checkbox size */
     height: 1em; /* Explicit checkbox size */
     background-color: #ffffff;
+}
+
+.tooltip {
+    display: block;
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+    right: 5%;
+    background-color: white;
+    color: black;
+    padding: .5em;
+    min-width: 10rem;
+    opacity: 0;
+    transition: 0.3s;
+    pointer-events: none;
+}
+
+.form-field:hover .tooltip, .form-field:active .tooltip {
+    opacity: 1;
 }
